@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+import java.net.URI;
+
 public class MyResourceTest {
 
     private HttpServer server;
@@ -19,7 +21,7 @@ public class MyResourceTest {
     @Before
     public void setUp() throws Exception {
         // start the server
-        server = Main.startServer();
+        server = Main.startServer(new URI("http://localhost:58080/myapp"));
         // create the client
         Client c = ClientBuilder.newClient();
 
@@ -29,12 +31,12 @@ public class MyResourceTest {
         // --
         // c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
 
-        target = c.target(Main.BASE_URI);
+        target = c.target("http://localhost:58080/myapp");
     }
 
     @After
     public void tearDown() throws Exception {
-        server.stop();
+        server.shutdownNow();
     }
 
     /**

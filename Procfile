@@ -1,0 +1,1 @@
+web: java -cp target/classes:target/dependency/* com.example.kami_teru.Main
