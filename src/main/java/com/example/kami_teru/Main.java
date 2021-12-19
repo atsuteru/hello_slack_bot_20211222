@@ -55,7 +55,7 @@ public class Main {
         }, "Shutdown Hook Thread"));
 
         server.start();
-        System.out.println(String.format("Jersey app started.\nHit CTRL^C to stop it...", baseUri));
+        System.out.println(String.format("Jersey app %s started.\nHit CTRL^C to stop it...", baseUri));
         Thread.currentThread().join();
     }
 }
