@@ -1,4 +1,4 @@
-package com.example.kami_teru.slack.api.contracts;
+package com.example.kami_teru.proxies.slack;
 
 public class TeamData {
     public String id;

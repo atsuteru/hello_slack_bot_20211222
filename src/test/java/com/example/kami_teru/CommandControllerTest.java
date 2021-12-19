@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import com.example.kami_teru.businesscard.api.controllers.BusinessCardApiControllerMock;
-import com.example.kami_teru.slack.api.contracts.ResponseData;
+import com.example.kami_teru.proxies.slack.ResponseData;
 import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;

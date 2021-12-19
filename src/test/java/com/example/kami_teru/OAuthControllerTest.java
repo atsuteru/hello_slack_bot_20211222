@@ -6,8 +6,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.function.Function;
 
-import com.example.kami_teru.slack.api.contracts.OAuthResponseData;
-import com.example.kami_teru.slack.api.contracts.TeamData;
+import com.example.kami_teru.proxies.slack.OAuthResponseData;
+import com.example.kami_teru.proxies.slack.TeamData;
 import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;

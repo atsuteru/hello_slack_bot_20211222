@@ -10,9 +10,9 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-import com.example.kami_teru.slack.api.contracts.EventData;
-import com.example.kami_teru.slack.api.contracts.EventRequestData;
-import com.example.kami_teru.slack.api.contracts.ResponseData;
+import com.example.kami_teru.proxies.slack.EventData;
+import com.example.kami_teru.proxies.slack.EventRequestData;
+import com.example.kami_teru.proxies.slack.ResponseData;
 import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;
