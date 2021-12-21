@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 import com.example.kami_teru.proxies.slack.OAuthResponseData;
 import com.example.kami_teru.proxies.slack.TeamData;
-import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
+import com.example.kami_teru.slack.api.SlackApiMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -24,7 +24,7 @@ import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
 import redis.clients.jedis.Jedis;
 
-public class OAuthControllerTest {
+public class OAuthResourceTest {
 
     private HttpServer server;
     private WebTarget target;
@@ -54,7 +54,7 @@ public class OAuthControllerTest {
         try {
             final MultivaluedMap<String, String> slackReceives = new MultivaluedHashMap<String, String>();
 
-            SlackApiControllerMock.oautuV2AccessFunc = new Function<MultivaluedMap<String,String>,Response>() {
+            SlackApiMock.oautuV2AccessFunc = new Function<MultivaluedMap<String,String>,Response>() {
                 @Override
                 public Response apply(MultivaluedMap<String, String> formParams) {
                     slackReceives.putAll(formParams);

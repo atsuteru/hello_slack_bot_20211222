@@ -13,7 +13,7 @@ import java.util.function.Function;
 import com.example.kami_teru.proxies.slack.EventData;
 import com.example.kami_teru.proxies.slack.EventRequestData;
 import com.example.kami_teru.proxies.slack.ResponseData;
-import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
+import com.example.kami_teru.slack.api.SlackApiMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -28,7 +28,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import redis.clients.jedis.Jedis;
 
-public class EventControllerTest {
+public class EventResourceTest {
     
     private HttpServer server;
     private WebTarget target;
@@ -77,7 +77,7 @@ public class EventControllerTest {
             final Map<String, String> slackReceives = new HashMap<String, String>();
             final Semaphore semaphore = new Semaphore(1, true);
 
-            SlackApiControllerMock.postChatMessageFunc = new Function<Map<String,String>,Response>() {
+            SlackApiMock.postChatMessageFunc = new Function<Map<String,String>,Response>() {
                 @Override
                 public Response apply(Map<String, String> formParams) {
                     slackReceives.putAll(formParams);

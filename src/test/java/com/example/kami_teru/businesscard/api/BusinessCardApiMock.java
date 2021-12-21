@@ -1,4 +1,4 @@
-package com.example.kami_teru.businesscard.api.controllers;
+package com.example.kami_teru.businesscard.api;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("api/businesscard")
-public class BusinessCardApiControllerMock {
+public class BusinessCardApiMock {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

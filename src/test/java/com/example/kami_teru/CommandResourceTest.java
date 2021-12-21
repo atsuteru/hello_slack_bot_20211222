@@ -13,9 +13,9 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-import com.example.kami_teru.businesscard.api.controllers.BusinessCardApiControllerMock;
+import com.example.kami_teru.businesscard.api.BusinessCardApiMock;
 import com.example.kami_teru.proxies.slack.ResponseData;
-import com.example.kami_teru.slack.api.controllers.SlackApiControllerMock;
+import com.example.kami_teru.slack.api.SlackApiMock;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -31,7 +31,7 @@ import jakarta.ws.rs.core.Form;
 import jakarta.ws.rs.core.Response;
 import redis.clients.jedis.Jedis;
 
-public class CommandControllerTest {
+public class CommandResourceTest {
 
     private HttpServer server;
     private WebTarget target;
@@ -65,7 +65,7 @@ public class CommandControllerTest {
                 // (1)
                 final Map<String, String> slackMessageReceives = new HashMap<String, String>();
                 final Semaphore slackMessageSemaphore = new Semaphore(1, true);
-                SlackApiControllerMock.responseMessageFunc = new Function<Map<String,String>,Response>() {
+                SlackApiMock.responseMessageFunc = new Function<Map<String,String>,Response>() {
                     @Override
                     public Response apply(Map<String, String> formParams) {
                         slackMessageReceives.putAll(formParams);
@@ -78,7 +78,7 @@ public class CommandControllerTest {
                 // (2)
                 final Map<String, String> businessCardGenReceives = new HashMap<String, String>();
                 final Semaphore businessCardGenSemaphore = new Semaphore(1, true);
-                BusinessCardApiControllerMock.generateAsPdfFunc = new Function<Map<String,String>,Response>() {
+                BusinessCardApiMock.generateAsPdfFunc = new Function<Map<String,String>,Response>() {
                     @Override
                     public Response apply(Map<String, String> formParams) {
                         businessCardGenReceives.putAll(formParams);
@@ -89,7 +89,7 @@ public class CommandControllerTest {
                 // (3)
                 final Map<String, Object> slackUploadReceives = new HashMap<String, Object>();
                 final Semaphore slackUploadSemaphore = new Semaphore(1, true);
-                SlackApiControllerMock.uploadFileFunc = new Function<Map<String,Object>,Response>() {
+                SlackApiMock.uploadFileFunc = new Function<Map<String,Object>,Response>() {
                     @Override
                     public Response apply(Map<String, Object> formParams) {
                         slackUploadReceives.putAll(formParams);

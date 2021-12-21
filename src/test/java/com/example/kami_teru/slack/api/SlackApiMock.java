@@ -1,4 +1,4 @@
-package com.example.kami_teru.slack.api.controllers;
+package com.example.kami_teru.slack.api;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +20,7 @@ import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
 
 @Path("api")
-public class SlackApiControllerMock {
+public class SlackApiMock {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

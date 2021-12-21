@@ -7,7 +7,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/")
-public class Welcome {
+public class WelcomeResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response get() {
