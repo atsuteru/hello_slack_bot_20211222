@@ -60,6 +60,15 @@ public class SlackClient {
                 put("text", text);
             }}, MediaType.APPLICATION_JSON));
     }
+
+    public static Response responseMessage(final String respoonseUrl, final String text) {
+        return ClientBuilder.newClient().target(respoonseUrl)
+            .request()
+            .post(Entity.entity(new HashMap<String, String>(){{
+                put("text", text);
+            }}, MediaType.APPLICATION_JSON));
+    }
+
     public static Response uploadFile(final String team_id, final String channel_id,
         final String title, final String comment,
         final String fileType, final String fileName, final InputStream fileStream) {
