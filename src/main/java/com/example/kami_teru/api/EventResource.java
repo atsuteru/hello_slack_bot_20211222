@@ -1,6 +1,7 @@
 package com.example.kami_teru.api;
 
 import com.example.kami_teru.proxies.slack.EventRequestData;
+import com.example.kami_teru.tasks.EventCallbackTask;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
@@ -15,6 +16,9 @@ public class EventResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public Response post(EventRequestData requestData) {
+        if ("event_callback".equals(requestData.type)) {
+            new Thread(new EventCallbackTask(requestData)).start();
+        }
         return Response.ok().entity(requestData.challenge).build();
     }
 }
