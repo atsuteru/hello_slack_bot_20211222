@@ -130,7 +130,7 @@ public class CommandResourceTest {
 
                 // Wait business card gen task
                 assertEquals(true, businessCardGenSemaphore.tryAcquire(10000, TimeUnit.MILLISECONDS));    
-                assertEquals("templates/business_card.mustache.html", businessCardGenReceives.get("template"));
+                assertEquals("https://hello-slack-bot-20211222.web.app/certificate_of_participation.mustache.html", businessCardGenReceives.get("template"));
                 assertEquals("太郎", businessCardGenReceives.get("name"));
                 assertEquals("発表者", businessCardGenReceives.get("role"));
                 assertEquals("ピープルソフトウェア株式会社", businessCardGenReceives.get("company"));
