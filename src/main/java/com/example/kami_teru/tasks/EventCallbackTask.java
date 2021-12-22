@@ -16,6 +16,10 @@ public class EventCallbackTask implements Runnable{
 
     @Override
     public void run() {
+        if (requestData.event.bot_id != null && !requestData.event.bot_id.isEmpty()) {
+            return;
+        }
+
         final String access_token;
         try (Jedis redis = RedisClient.connect()) {
             access_token = redis.get("BOTTOKEN_" + requestData.team_id);
